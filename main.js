@@ -30,6 +30,14 @@ client.on("message", message => {
         client.commands.get("help").execute(message, args);
     }
 
+    else if (command === "truth") {
+        client.commands.get("truth").execute(message, args);
+    }
+
+    else if (command === "dare") {
+        client.commands.get("dare").execute(message, args);
+    }
+
 });
 
 
