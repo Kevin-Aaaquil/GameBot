@@ -3,7 +3,7 @@ const config = require('./config.json');
 
 const client = new discord.Client();
 
-const prefix = "*";                                                           //comment start 
+const prefix = "*";                                                           //comment start     //to stop command folder access
 
 const fs = require("fs");
 
