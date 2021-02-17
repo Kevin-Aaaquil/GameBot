@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
-require('dotenv').config();
+require('dotenv').config(); //reads .env file
 const readline = require('readline');
-//process.env.MONGODB_URL
+
 const client = new MongoClient(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
@@ -22,47 +22,62 @@ async function test() {
 async function add() {
 	// await db.collection('truth').insertOne({ enter: 'hello there' });
 	try {
-		r.question(
-			'Enter 1 if you want to add a truth question and 2 for dare',
-			(choice) => {
-				r.question(
-					'Enter the statement you wish to add to the database',
-					(statement) => {
-						if (choice == 1) {
-							async function addtruth() {
-								let count = await db
-									.collection('truth')
-									.countDocuments();
-								await db
-									.collection('truth')
-									.insertOne({
-										index: count,
-										statement: statement,
-									});
-							}
-							addtruth();
-						} else if (choice == 2) {
-							async function adddare() {
-								let count = await db
-									.collection('dare')
-									.countDocuments();
-								await db
-									.collection('dare')
-									.insertone({
-										index: count,
-										statement: statement,
-									});
-							}
-						}
+		function process() {
+			r.question(
+				'Enter [1] if you want to add a truth question, [2] for dare and [e] to exit  ',
+				(choice) => {
+					if (choice === 'e') {
+						exit();
 					}
-				);
-			}
-		);
+					if (choice == 1 || choice == 2) {
+						r.question(
+							'Enter the statement you wish to add to the database      ',
+							(statement) => {
+								if (choice == 1) {
+									async function addtruth() {
+										let count = await db
+											.collection('truth')
+											.countDocuments();
+										await db.collection('truth').insertOne({
+											index: count,
+											statement: statement,
+										});
+										console.log(' Added the truth');
+										process();
+									}
+
+									addtruth();
+								} else if (choice == 2) {
+									async function addare() {
+										let count = await db
+											.collection('dare')
+											.countDocuments();
+										await db.collection('dare').insertOne({
+											index: count,
+											statement: statement,
+										});
+										console.log(
+											'Added the dare statement to DB'
+										);
+										process();
+									}
+									addare();
+								}
+							}
+						);
+					}
+				}
+			);
+		}
+		process();
 	} catch (error) {
 		console.log('error');
 	}
 }
-
+function exit() {
+	r.close();
+	client.close();
+}
 test().then(() => {
 	add();
 });
