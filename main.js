@@ -30,6 +30,9 @@ client.on("message", message => {
         client.commands.get("help").execute(message, args);
     }
 
+    else
+        message.channel.send("Message Barbaad Behenchod")    // To test the working of prefix during introduction of new commands
+
 });
 
 
