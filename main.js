@@ -18,6 +18,7 @@ for (const file of commandFiles) {
 
 client.once("ready", (err) => {
     console.log("Hello Human!!");
+    message.channel.send("Hey I Am Active Now")
 });
 
 client.on("message", message => {
