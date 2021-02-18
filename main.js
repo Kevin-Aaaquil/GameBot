@@ -6,6 +6,7 @@ const client = new discord.Client();
 const prefix = "*";                                                           //comment start 
 
 const fs = require("fs");
+const { execute } = require("./commands/truth");
 
 client.commands = new discord.Collection();
 
@@ -28,6 +29,14 @@ client.on("message", message => {
 
     if (command === "help") {                             //Help
         client.commands.get("help").execute(message, args);
+    }
+
+    else if (command === "truth") {
+        client.commands.get("truth").execute(message, args);
+    }
+
+    else if (command === "dare") {
+        client.commands.get("dare").execute(message, args);
     }
 
     else
