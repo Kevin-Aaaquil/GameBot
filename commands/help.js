@@ -8,14 +8,14 @@ async function test() {
     let data1 = await _db.collection('truth').findOne({ index: i });
     console.log(data1.statement);
     return data1.statement;
-  } catch (error) {}
+  } catch (error) { }
 }
-=======
+
 module.exports = {
-    name: "help",
-    description: "Helps confused souls",
-    execute(message, args) {
-        message.channel.send("Hey Guys, New Bot for fun GAMES");
-    },
+  name: "help",
+  description: "Helps confused souls",
+  execute(message, args) {
+    message.channel.send("Hey Guys, New Bot for fun GAMES");
+  },
 };
 
