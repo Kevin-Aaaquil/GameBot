@@ -16,6 +16,9 @@ module.exports = {
   },
 
   getDb: function () {
+    if (!_db) {
+      this.connectToServer();
+    }
     return _db;
   },
 };
