@@ -34,19 +34,7 @@ db.connectToServer(function (err) {
 
     if (command === 'help') {
       //Help
-      let data = 'truth and dare add karo bkl';
-      // async function helpdata() {
-      //   try {
-      //     data = await db.getDb().collection('truth').countDocuments();
-      //     return data;
-      //     console.log(data);
-      //   } catch (error) {
-      //     console.log('error');
-      //   }
-      // }
-      // helpdata().then(data => {
-      client.commands.get('help').execute(message, args, data);
-      // });
+      client.commands.get('help').execute(message, args);
     } else message.channel.send('Message Barbaad Behenchod'); // To test the working of prefix during introduction of new commands
   });
 
