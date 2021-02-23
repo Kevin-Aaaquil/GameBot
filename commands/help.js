@@ -1,4 +1,3 @@
-
 const db = require('./../data');
 const _db = db.getDb();
 async function test() {
@@ -12,10 +11,13 @@ async function test() {
 }
 
 module.exports = {
-  name: "help",
-  description: "Helps confused souls",
-  execute(message, args) {
-    message.channel.send("Hey Guys, New Bot for fun GAMES");
+  name: 'help',
+  description: 'Helps confused souls',
+  execute(message, args, data) {
+    test().then(data => {
+      message.channel.send(data);
+    });
+    // message.channel.send();
+    message.channel.send('Hey Guys, New Bot for fun GAMES');
   },
 };
-
