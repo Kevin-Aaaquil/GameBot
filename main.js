@@ -39,4 +39,5 @@ db.connectToServer(function (err) {
   });
 
   client.login(config.token);
+
 });
