@@ -30,15 +30,13 @@ db.connectToServer(function (err) {
     if (command === 'help') {
       //Help
       client.commands.get('help').execute(message, args);
-    }
-
-    else if (command === "truth") {
+    } else if (command === 'truth') {
       //Truth
       client.commands.get('truth').execute(message, args);
-    }
-
-
-    else message.channel.send('Message Barbaad Behenchod'); // To test the working of prefix during introduction of new commands
+    } else if (command === 'dare') {
+      //Truth
+      client.commands.get('dare').execute(message, args);
+    } else message.channel.send('Message Barbaad Behenchod'); // To test the working of prefix during introduction of new commands
   });
 
   client.login(config.token);
