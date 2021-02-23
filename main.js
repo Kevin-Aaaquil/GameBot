@@ -2,18 +2,17 @@ const discord = require('discord.js');
 const config = require('./config.json');
 const data = require('./data');
 const db = require('./data');
-let count = 10;
+const fs = require('fs');
+const client = new discord.Client();
+client.commands = new discord.Collection();
+client.once('ready', err => {
+  console.log('..................DISCORD CONNECTED!');
+});
 db.connectToServer(function (err) {
   if (err) console.log(err);
   console.log('................DATABASE CONNECTED');
 
-  const client = new discord.Client();
-
   const prefix = '*'; //comment start
-
-  const fs = require('fs');
-
-  client.commands = new discord.Collection();
 
   const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
   for (const file of commandFiles) {
@@ -21,10 +20,6 @@ db.connectToServer(function (err) {
 
     client.commands.set(command.name, command);
   } //comment end
-
-  client.once('ready', err => {
-    console.log('..................DISCORD CONNECTED!');
-  });
 
   client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -39,5 +34,4 @@ db.connectToServer(function (err) {
   });
 
   client.login(config.token);
-
 });
