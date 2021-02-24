@@ -1,5 +1,6 @@
 const db = require('./../data');
 const _db = db.getDb();
+const Discord = require('discord.js');
 async function test() {
   try {
     let index = await _db.collection('dare').countDocuments();
@@ -14,9 +15,17 @@ module.exports = {
   description: 'dare',
   execute(message, args) {
     test().then(data => {
-      message.channel.send(data);
+      const embed = new Discord.MessageEmbed()
+        .setColor('#14FFFF')
+        .setTitle('Dare? Gaand fate toh fate, nawabi na ghate.')
+        .setDescription(data)
+        .setTimestamp()
+        .setThumbnail(
+          'https://cdn.discordapp.com/attachments/768427821755793428/814147050639851560/1_9QwZkXU_gfk5FJotW-dCnA.jpeg',
+        )
+        .setFooter('created with lob by Kevin and Shawshank');
+      message.channel.send(embed);
     });
     // message.channel.send();
-    message.channel.send('something is not something. dare edition');
   },
 };
