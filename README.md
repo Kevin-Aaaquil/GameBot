@@ -6,7 +6,7 @@ To host a bot like this you would need to create a `.env` file. In that `.env` f
 
 You would also need to create a `config.json` file and store your bot token in that file using the variable name `token`. It should be in the below given format. **DO NOT** share this token with anyone else to avoid tampering with your bot.
 
-
+```
 {
  
     "prefix" : "!"
@@ -14,6 +14,7 @@ You would also need to create a `config.json` file and store your bot token in t
     "token" : "Your Bot Token Must Be Entered Here"
 
 }
+```
 
 
 ## This BOT is currently in BETA mode and new features will be added
