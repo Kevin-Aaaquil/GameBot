@@ -1,3 +1,5 @@
+// Made With Love By Kevin and Shawshank
+
 const { DiscordAPIError } = require('discord.js');
 const Discord = require('discord.js');
 

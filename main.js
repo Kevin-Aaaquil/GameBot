@@ -1,3 +1,5 @@
+// Made With Love By Kevin and Shawshank
+
 const discord = require('discord.js');
 const config = require('./config.json');
 const data = require('./data');
@@ -27,16 +29,22 @@ db.connectToServer(function (err) {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'help') {
-      //Help
+    if (command === 'help') {                                                                     //Help
+
       client.commands.get('help').execute(message, args);
-    } else if (command === 'truth') {
-      //Truth
+    }
+
+    else if (command === 'truth' || command === 't') {                                                                //Truth
+
       client.commands.get('truth').execute(message, args);
-    } else if (command === 'dare') {
-      //Truth
+    }
+
+    else if (command === 'dare' || command === 'd') {                                                                   //Truth
+
       client.commands.get('dare').execute(message, args);
-    } else message.channel.send('Message Barbaad Behenchod'); // To test the working of prefix during introduction of new commands
+    }
+
+    else message.channel.send('Message Barbaad Behenchod'); // To test the working of prefix during introduction of new commands
   });
 
   client.login(config.token);
