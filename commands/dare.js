@@ -1,3 +1,5 @@
+// Made With Love By Kevin and Shawshank
+
 const db = require('./../data');
 const _db = db.getDb();
 const Discord = require('discord.js');

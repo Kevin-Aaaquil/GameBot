@@ -15,8 +15,8 @@ You would also need to create a `config.json` file and store your bot token in t
 
 ## To Contact the Developers Please Email at the below given Addresses
 
-* eshansingh2409@gmail.com
-* shashankkumarthakur@gmail.com
+* eshansingh2409@gmail.com              **Kevin-Aaaquil**
+* shashankkumarthakur@gmail.com         **shawshankkumar**
 
 ### For Feedback or Suggestion Please click on the Below Link
  [Feedback](https://forms.gle/9fJMjq2k9S2XpGsf6)

@@ -1,1 +1,1 @@
-# This file contains all the commands
+# This file contains all the command

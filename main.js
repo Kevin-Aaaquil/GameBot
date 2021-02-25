@@ -1,3 +1,5 @@
+// Made With Love By Kevin and Shawshank
+
 const discord = require('discord.js');
 const config = require('./config.json');
 const data = require('./data');

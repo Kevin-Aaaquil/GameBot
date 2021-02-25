@@ -1,3 +1,5 @@
+// Made With Love By Kevin and Shawshank
+
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config(); //reads .env file
 const readline = require('readline');
