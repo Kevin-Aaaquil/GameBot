@@ -14,7 +14,7 @@ db.connectToServer(function (err) {
   if (err) console.log(err);
   console.log('................DATABASE CONNECTED');
 
-  const prefix = '*'; //comment start
+  const prefix = '!'; //comment start
 
   const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
   for (const file of commandFiles) {
