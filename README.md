@@ -1,6 +1,6 @@
 # GameBot
 
-This is a Discord Bot coded in Javascript, which uses Node.js and MongoDB. It talks to your discord server and responds to commands using the prefix `*`, for example `*help`. 
+This is a Discord Bot coded in Javascript, which uses Node.js and MongoDB. It talks to your discord server and responds to commands using the prefix `!`, for example `!help`. 
 
 To host a bot like this you would need to create a `.env` file. In that `.env` file you would need to add a mongodb URL. This URL must contain the username and password of your mongodb cluster, it should also end with `/TruthAndDareBot`. When making a database in Atlas, the programmer needs to ensure that both the database name and collection name is `TruthAndDareBot`
 
