@@ -44,7 +44,7 @@ db.connectToServer(function (err) {
       client.commands.get('dare').execute(message, args);
     }
 
-    else message.channel.send('Message Barbaad Behenchod'); // To test the working of prefix during introduction of new commands
+    
   });
 
   client.login(config.token);
