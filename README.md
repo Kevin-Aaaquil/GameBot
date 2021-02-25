@@ -9,7 +9,7 @@ You would also need to create a `config.json` file and store your bot token in t
 ```
 {
  
-    "prefix" : "!"
+    "prefix" : "*"
 
     "token" : "Your Bot Token Must Be Entered Here"
 
