@@ -8,8 +8,9 @@ async function test() {
     let index = await _db.collection('truth').countDocuments();
     let i = Math.floor(Math.random() * index); //use a random operator here
     let data = await _db.collection('truth').findOne({ index: i });
-    return data.statement;
-  } catch (error) { }
+    console.log(data.name);
+    return data;
+  } catch (error) {}
 }
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
         .setColor('#FF1414')
         .setTitle('Truth? very brave of you my child.')
-        .setDescription(data)
+        .setDescription(data.statement)
         .setTimestamp()
         .setFooter('created with love by Kevin and Shawshank')
         .setThumbnail('https://cdn.discordapp.com/attachments/768427821755793428/814141761210679316/unknown.png');

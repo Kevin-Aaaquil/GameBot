@@ -39,27 +39,37 @@ async function add() {
                 r.question('Enter the statement you wish to add to the database      ', statement => {
                   if (choice == 1) {
                     async function addtruth() {
-                      let count = await db.collection('truth').countDocuments();
-                      await db.collection('truth').insertOne({
-                        name: name,
-                        index: count,
-                        statement: statement,
-                      });
-                      console.log(' Added the truth');
-                      process();
+                      if (statement === '' || statement === ' ') {
+                        console.log('empty statement');
+                        process();
+                      } else {
+                        let count = await db.collection('truth').countDocuments();
+                        await db.collection('truth').insertOne({
+                          name: name,
+                          index: count,
+                          statement: statement,
+                        });
+                        console.log(' Added the truth');
+                        process();
+                      }
                     }
 
                     addtruth();
                   } else if (choice == 2) {
                     async function addare() {
-                      let count = await db.collection('dare').countDocuments();
-                      await db.collection('dare').insertOne({
-                        name: name,
-                        index: count,
-                        statement: statement,
-                      });
-                      console.log('Added the dare statement to DB');
-                      process();
+                      if (statement === '' || statement === ' ') {
+                        console.log('empty statement');
+                        process();
+                      } else {
+                        let count = await db.collection('dare').countDocuments();
+                        await db.collection('dare').insertOne({
+                          name: name,
+                          index: count,
+                          statement: statement,
+                        });
+                        console.log('Added the dare statement to DB');
+                        process();
+                      }
                     }
                     addare();
                   }

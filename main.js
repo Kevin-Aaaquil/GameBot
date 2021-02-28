@@ -12,7 +12,7 @@ client.once('ready', err => {
 });
 db.connectToServer(function (err) {
   if (err) console.log(err);
-  console.log('................DATABASE CONNECTED');
+  console.log('..................DATABASE CONNECTED');
 
   const prefix = '!'; //comment start
 
@@ -22,29 +22,34 @@ db.connectToServer(function (err) {
 
     client.commands.set(command.name, command);
   } //comment end
-
+  const cooldown = new Set();
   client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
+    if (cooldown.has(message.author.name)) {
+      client.commands.get('cooldown').execute(message, args);
+      message.channel.send(`<@${message.author.id}>`);
+    } else {
+      cooldown.add(message.author.name);
+      setTimeout(() => {
+        cooldown.delete(message.author.name);
+      }, 4000);
+      if (command === 'help') {
+        //Help
 
-    if (command === 'help') {                                                                     //Help
+        client.commands.get('help').execute(message, args);
+      } else if (command === 'truth' || command === 't') {
+        //Truth
 
-      client.commands.get('help').execute(message, args);
+        client.commands.get('truth').execute(message, args);
+      } else if (command === 'dare' || command === 'd') {
+        //Truth
+
+        client.commands.get('dare').execute(message, args);
+      }
     }
-
-    else if (command === 'truth' || command === 't') {                                                                //Truth
-
-      client.commands.get('truth').execute(message, args);
-    }
-
-    else if (command === 'dare' || command === 'd') {                                                                   //Truth
-
-      client.commands.get('dare').execute(message, args);
-    }
-
-    
   });
 
   client.login(config.token);
