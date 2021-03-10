@@ -8,11 +8,11 @@ const fs = require('fs');
 const client = new discord.Client();
 client.commands = new discord.Collection();
 client.once('ready', err => {
-  console.log('..................DISCORD CONNECTED!');
+  console.log('\x1b[32m', '\x1b[5m', '..................DISCORD CONNECTED!');
 });
 db.connectToServer(function (err) {
   if (err) console.log(err);
-  console.log('..................DATABASE CONNECTED');
+  console.log('\x1b[32m', '\x1b[5m', '................DATABASE CONNECTED');
 
   const prefix = '!'; //comment start
 
