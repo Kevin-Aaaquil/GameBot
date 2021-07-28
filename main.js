@@ -23,7 +23,7 @@ db.connectToServer(function (err) {
     client.commands.set(command.name, command);
   } //comment end
   const cooldown = new Set();
-  client.on('message', message => {
+  client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -48,6 +48,9 @@ db.connectToServer(function (err) {
         //Dare
 
         client.commands.get('dare').execute(message, args);
+      }
+      else if(command === "murder"){
+       client.commands.get('murder').execute(message,client.user.id,args);
       }
     }
   });
