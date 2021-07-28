@@ -49,11 +49,6 @@ db.connectToServer(function (err) {
 
         client.commands.get('dare').execute(message, args);
       }
-
-      else if(command === "muder"){
-        
-        client.commands.get('murder').execute(message,args)
-      }
     }
   });
 
