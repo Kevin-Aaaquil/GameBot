@@ -4,17 +4,17 @@
   "description": "A fun bot to play games like Truth And Dare",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev":"nodemon main.js"
   },
   "author": "Kevin",
   "license": "ISC",
-  "dependencies": {
-    "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0",
-    "install": "^0.13.0",
-    "mongodb": "^3.6.4"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "mongodb": "^4.0.1"
   }
 }

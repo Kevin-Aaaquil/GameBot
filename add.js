@@ -5,8 +5,6 @@ require('dotenv').config(); //reads .env file
 const readline = require('readline');
 
 const client = new MongoClient(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   ignoreUndefined: true,
 });
 const r = readline.createInterface({

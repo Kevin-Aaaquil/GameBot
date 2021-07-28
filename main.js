@@ -1,7 +1,7 @@
 // Made With Love By Kevin and Shawshank
 
 const discord = require('discord.js');
-const config = require('./config.json');
+require('dotenv').config()
 const data = require('./data');
 const db = require('./data');
 const fs = require('fs');
@@ -14,7 +14,7 @@ db.connectToServer(function (err) {
   if (err) console.log(err);
   console.log('\x1b[32m', '\x1b[5m', '................DATABASE CONNECTED');
 
-  const prefix = '!'; //comment start
+  const prefix = process.env.prefix; //comment start
 
   const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
   for (const file of commandFiles) {
@@ -45,12 +45,17 @@ db.connectToServer(function (err) {
 
         client.commands.get('truth').execute(message, args);
       } else if (command === 'dare' || command === 'd') {
-        //Truth
+        //Dare
 
         client.commands.get('dare').execute(message, args);
+      }
+
+      else if(command === "muder"){
+        
+        client.commands.get('murder').execute(message,args)
       }
     }
   });
 
-  client.login(config.token);
+  client.login(process.env.token);
 });

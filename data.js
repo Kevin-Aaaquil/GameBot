@@ -9,7 +9,7 @@ module.exports = {
   connectToServer: function (callback) {
     MongoClient.connect(
       process.env.MONGODB_URI,
-      { useNewUrlParser: true, useUnifiedTopology: true },
+      { useNewUrlParser:true, ignoreUndefined:true, useUnifiedTopology:true },
       function (err, MongoClient) {
         _db = MongoClient.db();
         return callback(err);
