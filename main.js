@@ -36,6 +36,16 @@ db.connectToServer(function (err) {
       setTimeout(() => {
         cooldown.delete(message.author.name);
       }, 4000);
+      // aise hi hai yeh
+      // if(message.guild){
+      //    console.log("Guild Name : " + message.guild.name + "\nUser Name : " +  message.author.username + "\nCommand :" + command)
+      // }
+      // else
+      // {
+      //   console.log("Private Message \n" + "User Name : " +  message.author.username + "\nCommand : " + command)
+      // }
+    
+
       if (command === 'help') {
         //Help
 
@@ -50,7 +60,14 @@ db.connectToServer(function (err) {
         client.commands.get('dare').execute(message, args);
       }
       else if(command === "murder"){
+        
+
        client.commands.get('murder').execute(message,client.user.id,args);
+      }
+
+      else if(command === 'murder-help'){
+
+        client.commands.get("murder-help").execute(message,args)
       }
     }
   });
